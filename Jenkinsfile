@@ -36,7 +36,7 @@ node {
   stage('Run Tests') {
     try {
       dir('webapp') {
-        sh "mvn test"
+        bat "mvn test"
         docker.build("localhost:5000/docker-jenkins-pipeline:${env.BUILD_NUMBER}").push()
       }
     } catch (error) {
