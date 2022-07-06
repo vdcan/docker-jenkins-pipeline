@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: j6
+spec:
+  selector:
+    matchLabels:
+      app: j6
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: j6
+    spec:
+      containers:
+      - name: j6
+        image: i452/jboss-fuse-6.1.0.redhat-379:20170227
+        resources:
+          limits:
+            memory: "2.5Gi"
+            cpu: "500m"
