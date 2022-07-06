@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: j6
+  name: docker-jenkins-pipeline
 spec:
   selector:
     matchLabels:
-      app: j6
+      app: docker-jenkins-pipeline
   replicas: 1
   template:
     metadata:
       labels:
-        app: j6
+        app: docker-jenkins-pipeline
     spec:
       containers:
-      - name: j6
-        image: i452/jboss-fuse-6.1.0.redhat-379:20170227
+      - name: docker-jenkins-pipeline
+        image: localhost:5000/docker-jenkins-pipeline
         resources:
           limits:
-            memory: "2.5Gi"
+            memory: "25Mi"
             cpu: "500m"
