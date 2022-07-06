@@ -45,4 +45,16 @@ node {
       junit '**/target/surefire-reports/*.xml'
     }
   }
+  
+  stage('Run Kubernetes') {
+    try { 
+        bat "kubectl apply -f y4.yaml" 
+      
+    } catch (error) {
+
+    } finally {
+     
+    }
+  }
+  
 }
